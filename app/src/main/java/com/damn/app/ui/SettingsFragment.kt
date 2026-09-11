@@ -102,8 +102,8 @@ class SettingsFragment : Fragment(), SharedPreferences.OnSharedPreferenceChangeL
 
         binding.resetBtn.setOnClickListener { confirmReset() }
         binding.btnAboutApp.setOnClickListener { showAboutDialog() }
-        binding.btnDeveloper.setOnClickListener { openUrl("https://github.com/MBHudson/D-A-M-N") }
-        binding.btnPrivacyPolicy.setOnClickListener { openUrl("https://github.com/MBHudson/D-A-M-N/blob/main/PRIVACY.md") }
+        binding.btnDeveloper.setOnClickListener { openUrl("https://github.com/MBHudson/DropAnyMediaNow") }
+        binding.btnPrivacyPolicy.setOnClickListener { openUrl("https://github.com/MBHudson/DropAnyMediaNow/blob/main/privacy-policy.md") }
 
         setupAdvancedMutualExclusion()
     }
