@@ -10,18 +10,23 @@
         .canvas {
             width: 1024px;
             height: 500px;
+            min-width: 1024px; /* Prevent shrinking */
+            min-height: 500px;
             background: #0B1220; /* Brand background */
             position: relative;
             overflow: hidden;
             display: flex;
             align-items: center;
+            box-sizing: border-box; /* Ensure exact sizing */
+            flex-shrink: 0;
         }
 
         /* TEXT SECTION */
         .content {
             padding-left: 80px;
             z-index: 10;
-            flex: 1.2;
+            width: 600px; /* Fixed width for text area */
+            flex-shrink: 0;
             pointer-events: none;
         }
 
@@ -53,9 +58,10 @@
 
         /* MOCKUP SECTION */
         .mockups {
-            flex: 1;
+            width: 424px; /* Remaining space */
             position: relative;
             height: 100%;
+            flex-shrink: 0;
         }
 
         .phone {
@@ -86,7 +92,7 @@
 
         /* Dashboard Mockup - Focal Point */
         .p2 {
-            transform: rotate(-6deg) translateX(120px) translateY(20px);
+            transform: rotate(-6deg) translateX(40px) translateY(20px);
             z-index: 2;
             border-color: #38BDF8; /* Accent border on primary mockup */
         }
