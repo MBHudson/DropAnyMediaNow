@@ -2,13 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>D·A·M·N High-Res Promo Banner</title>
+    <title>D·A·M·N 4K Promo Banner</title>
     <style>
-        /* 4096 x 2304 - 16:9 Ultra High Res */
         body {
             margin: 0;
-            padding: 0;
-            background: #0B1220;
+            background: #1e293b;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -17,117 +15,137 @@
             overflow: auto;
         }
 
+        /* EXACT SPECIFICATIONS: 4096px by 2304px */
         .canvas {
             width: 4096px;
             height: 2304px;
-            background: #0B1220;
+            background: #0B1220; /* Brand background */
             position: relative;
             overflow: hidden;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
             box-sizing: border-box;
             flex-shrink: 0;
         }
 
-        /* GLOWS */
-        .glow-main {
-            position: absolute;
-            width: 3000px;
-            height: 3000px;
-            background: radial-gradient(circle, rgba(56,189,248,0.12) 0%, rgba(11,18,32,0) 70%);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 0;
-        }
-
-        /* CONTENT */
+        /* TEXT SECTION */
         .content {
-            position: relative;
+            padding-left: 320px; /* Scaled 80 * 4 */
             z-index: 10;
-            text-align: center;
-            margin-bottom: 100px;
+            width: 2400px; /* Scaled 600 * 4 */
+            flex-shrink: 0;
+            pointer-events: none;
         }
 
         .logo {
-            font-size: 520px;
+            font-size: 520px; /* Scaled 130 * 4 */
             font-weight: 900;
             color: #FFFFFF;
-            letter-spacing: 40px;
+            letter-spacing: 48px; /* Scaled 12 * 4 */
             margin: 0;
-            text-shadow: 0 40px 100px rgba(0,0,0,0.8);
-            line-height: 1;
+            text-shadow: 0 60px 160px rgba(0,0,0,0.6);
+            line-height: 0.9;
         }
 
         .subtitle {
-            font-size: 140px;
-            color: #38BDF8;
+            font-size: 128px; /* Scaled 32 * 4 */
+            color: #38BDF8; /* Brand accent blue */
             font-weight: 700;
-            margin-top: -20px;
-            letter-spacing: 4px;
-        }
-
-        .tagline {
-            font-size: 110px;
-            color: #94A3B8;
-            font-weight: 300;
             margin-top: 40px;
             letter-spacing: 2px;
         }
 
-        /* MOCKUPS */
-        .mockup-container {
-            display: flex;
-            justify-content: center;
-            gap: 150px;
-            z-index: 5;
-            margin-top: 50px;
+        .tagline {
+            font-size: 168px; /* Scaled 42 * 4 */
+            color: #94A3B8;
+            font-weight: 300;
+            margin-top: 80px;
+            letter-spacing: 4px;
+        }
+
+        /* MOCKUP SECTION */
+        .mockups {
+            width: 1696px; /* Remaining space */
+            position: relative;
+            height: 100%;
+            flex-shrink: 0;
         }
 
         .phone {
-            width: 700px;
-            height: 1450px;
+            width: 1040px; /* Scaled 260 * 4 */
+            height: 2240px; /* Scaled 560 * 4 */
             background: #000;
-            border: 35px solid #1E293B;
-            border-radius: 120px;
+            border: 48px solid #1E293B; /* Scaled 12 * 4 */
+            border-radius: 176px; /* Scaled 44 * 4 */
+            position: absolute;
+            top: 32px;
             overflow: hidden;
-            box-shadow: 0 100px 200px rgba(0,0,0,0.8);
-            transform: translateY(0);
+            box-shadow: -160px 160px 320px rgba(0,0,0,0.9);
         }
-
-        .phone.p1 { transform: rotate(-5deg) translateY(50px); }
-        .phone.p2 { transform: rotate(5deg) translateY(-50px); border-color: #38BDF8; }
 
         .phone img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
+        }
+
+        /* Top phone - behind */
+        .p1 {
+            transform: rotate(-12deg) translateX(-400px) translateY(160px);
+            z-index: 1;
+            opacity: 0.7;
+        }
+
+        /* Bottom phone - focal point */
+        .p2 {
+            transform: rotate(-6deg) translateX(160px) translateY(80px);
+            z-index: 2;
+            border-color: #38BDF8; /* Accent border on primary mockup */
+        }
+
+        /* Glow effects for depth */
+        .glow {
+            position: absolute;
+            width: 3200px;
+            height: 3200px;
+            background: radial-gradient(circle, rgba(56,189,248,0.1) 0%, rgba(0,0,0,0) 70%);
+            top: -1200px;
+            right: -800px;
+            z-index: 0;
+        }
+
+        .accent-flare {
+            position: absolute;
+            bottom: -200px;
+            left: -200px;
+            width: 1200px;
+            height: 1200px;
+            background: radial-gradient(circle, rgba(167,139,250,0.05) 0%, rgba(0,0,0,0) 70%);
+            z-index: 0;
         }
 
         /* DEVELOPER CREDIT */
         .developer-info {
             position: absolute;
-            bottom: 180px; /* Moved up a bit as requested to avoid cutoff */
-            width: 100%;
-            text-align: center;
+            bottom: 220px; /* Moved up slightly from 180 to avoid Play Store cutoff */
+            left: 320px;
             z-index: 20;
         }
 
         .developer-text {
-            font-size: 70px;
+            font-size: 80px;
             color: rgba(255,255,255,0.4);
             font-weight: 500;
-            letter-spacing: 2px;
+            letter-spacing: 4px;
         }
-
     </style>
 </head>
 <body>
 
     <div class="canvas">
-        <div class="glow-main"></div>
+        <div class="glow"></div>
+        <div class="accent-flare"></div>
 
         <div class="content">
             <h1 class="logo">D·A·M·N</h1>
@@ -135,10 +153,13 @@
             <div class="tagline">Secure Direct Hosting</div>
         </div>
 
-        <div class="mockup-container">
+        <div class="mockups">
+            <!-- p1: Top phone (screenshot01) -->
             <div class="phone p1">
                 <img src="screenshot01.jpg" alt="Screen 1">
             </div>
+
+            <!-- p2: Bottom phone (screenshot02) -->
             <div class="phone p2">
                 <img src="screenshot02.jpg" alt="Screen 2">
             </div>
